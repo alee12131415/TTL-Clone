@@ -21,16 +21,33 @@ var enemy = function(x, y, state) {
 	this.y = y;
 	this.radius = 3;
 	this.state = state;
-}
+};
 
-enemy.prototype.stateHunter = function(player) {
+enemy.prototype.update = function(player) {
 	/*
-	Enemy will slowly follow player
-	
+	update enemy location
+
 	Args:
 		player: player of the game
 	*/
-	
+
+	switch (this.state) {
+		case 'hunter':
+			this.hunter(player);
+			break;
+		default:
+			break;
+	}
+};
+
+enemy.prototype.hunter = function(player) {
+	/*
+	Enemy will slowly follow player
+
+	Args:
+		player: player of the game
+	*/
+
 	xdiff = player.x - this.x;
 	ydiff = player.y - this.y;
 	hypo = Math.sqrt(Math.pow(xdiff, 2) + Math.pow(ydiff, 2))
@@ -38,4 +55,4 @@ enemy.prototype.stateHunter = function(player) {
 	ymov = ydiff / hypo;
 	this.x += xmov;
 	this.y += ymov;
-}
+};
