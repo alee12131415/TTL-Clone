@@ -1,6 +1,7 @@
 var canvas = document.getElementById('mygame');
 var context = canvas.getContext("2d");
 
+//mouse listener
 canvas.addEventListener('mousemove', updateMouse);
 
 function updateMouse(e) {
@@ -14,19 +15,32 @@ function updateMouse(e) {
 	my = e.clientY;
 };
 
-function main() {
-	the_game.update(mx, my);
-	the_game.draw();
-}
-
+//init values
 mx = canvas.width / 2; //mouse x
 my = canvas.height / 2; //mouse y
 
-//player class
-var the_player = new player(canvas.width / 2, canvas.height / 2);
-var the_enemies = new enemies();
-var the_game = new game(the_player, the_enemies);
-
-setInterval(main, 30);
 //1000 = 1 second
-//main loops 33.33 times a second
+//update loops 33.33 times a second
+
+//declare
+var player = new player(mx, my);
+var enemies = new enemies();
+var game = new game(player, enemies);
+
+//new style
+setInterval(function(){game.update();}, 30);
+game.draw();
+
+//debug
+/*
+var frames = 0;
+var timestart = Date.now();
+function getfr() {
+	if (frames <= 0) return;
+	var timepassed = Date.now() - timestart;
+	var fps = Math.round(1000/(timepassed/frames)*100)/100;
+	console.log(fps);
+}
+
+setInterval(getfr, 1000);
+*/

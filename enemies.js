@@ -42,7 +42,7 @@ enemies.prototype.update = function(player) {
 	Args:
 		state: string state of the enemy
 	*/
-	
+
 	this.enemy_array.forEach( function(e) {
 		e.update();
 	});
