@@ -54,7 +54,6 @@ enemies.prototype.draw = function() {
 		context.fillStyle = 'red';
 		context.beginPath();
 		context.arc(temp.x, temp.y, 3, Math.PI * 2, false);
-		context.stroke();
 		context.fill();
 	}
 };

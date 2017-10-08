@@ -3,6 +3,7 @@ var context = canvas.getContext("2d");
 
 //mouse listener
 canvas.addEventListener('mousemove', updateMouse);
+canvas.addEventListener('click', reset);
 
 function updateMouse(e) {
 	/*
@@ -11,9 +12,14 @@ function updateMouse(e) {
 	Args:
 		e: mouse information
 	*/
-	mx = e.clientX;
-	my = e.clientY;
+	mx = e.clientX - canvas.offsetLeft;
+	my = e.clientY - canvas.offsetTop;
 };
+
+var stime = Date.now();
+function reset() {
+	stime = Date.now();
+}
 
 //init values
 mx = canvas.width / 2; //mouse x

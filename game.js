@@ -41,7 +41,7 @@ game.prototype.draw = function() {
 	requestAnimationFrame(this.draw.bind(this));
 
 	//reset game frame
-	canvas.width = canvas.width;
+	context.clearRect(0, 0, canvas.width, canvas.height);
 	context.strokeStyle = "black";
 	context.strokeRect(0, 0, canvas.width, canvas.height);
 

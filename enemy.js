@@ -16,10 +16,12 @@ left
 right
 */
 
+const ENEMY_RADIUS = 3;
+
 var enemy = function(x, y, state) {
 	this.x = x;
 	this.y = y;
-	this.radius = 3;
+	this.radius = ENEMY_RADIUS;
 	this.state = state;
 };
 
